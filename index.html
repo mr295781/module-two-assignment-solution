@@ -12,9 +12,20 @@
             <h1>Check Off Shopping List</h1>
             <h2>Assignment Module 2</h2>
         </header>
-        <section>
-            <div id="listOne"></div>
-            <div id="listTwo"></div>
+        <section id="first" ng-controller="buyController as toBuyList">
+            <h3>To Buy List</h3>
+            <div id="buylist">
+                <ol>
+                    <li ng-repeat="item in toBuyList.items">
+                        Buy {{ item.quantity }} {{ item.name }}
+                        <button ng-click="toBuyList.boughtItem($index);">Bought</button>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        <section id="second" ng-controller="boughtController as boughtAlready">
+            <h3>Already Bought List</h3>
+            <div id="boughtList"></div>
         </section>
     </body>
 </html>
