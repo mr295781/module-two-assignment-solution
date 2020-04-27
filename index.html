@@ -2,8 +2,6 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="ngapp">
     <head>
         <meta charset="utf-8" />        
-        <script src="angular.min.js"></script>
-        <script src="application.js"></script>
         <title>Check Off List</title>
         <link rel="stylesheet" href="styles.css">
     </head>
@@ -12,13 +10,13 @@
             <h1>Check Off Shopping List</h1>
             <h2>Assignment Module 2</h2>
         </header>
-        <section id="first" ng-controller="buyController as toBuyList">
+        <section id="first" ng-controller="buyController as buyList">
             <h3>To Buy List</h3>
             <div id="buylist">
                 <ol>
-                    <li ng-repeat="item in toBuyList.items">
+                    <li ng-repeat="item in buyList.items">
                         Buy {{ item.quantity }} {{ item.name }}
-                        <button ng-click="toBuyList.boughtItem($index);">Bought</button>
+                        <button ng-click="buyList.boughtItem($index);">Bought</button>
                     </li>
                 </ol>
             </div>
@@ -27,5 +25,7 @@
             <h3>Already Bought List</h3>
             <div id="boughtList"></div>
         </section>
+        <script src="angular.min.js"></script>
+        <script src="application.js"></script>
     </body>
 </html>

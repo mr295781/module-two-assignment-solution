@@ -13,18 +13,17 @@
 			{ name: "Milk", quantity : 1 },
 		];
 
-		angular.module("ngapp").controller("buyController", toBuyList).controller("boughtController", boughtAlready).service("listService", listService);
+		angular.module("ngapp", []).controller("buyController", buyList).controller("boughtController", boughtAlready).service("serviceList", listService);
 
-		buyController.$inject["listService"];
-		function toBuyList(listService)
+		buyList.$inject["serviceList"];
+		function buyList(serviceList)
 		{
-			var toBuyList = this;
-
-			toBuyList.items = listService.getItems();
+			var buyList = this;
+			buyList.items = serviceList.getItems();
 		}
 
-		boughtController.$inject["listService"];
-		function boughtAlready(listService)
+		boughtController.$inject["serviceList"];
+		function boughtAlready(serviceList)
 		{
 
 		}
@@ -36,25 +35,52 @@
 			// List of items to buy...
 			var items = [];
 
-			//service.addItem = function () 
-			//{
-			//	items.push(toBuy[0]);
-			//	items.push(toBuy[1]);
-			//	items.push(toBuy[2]);
-			//	items.push(toBuy[3]);
-			//	items.push(toBuy[4]);
-			//};
+			var item = {}
 
 			service.getItems = function () 
 			{
-				items.push(toBuy[0]);
-				items.push(toBuy[1]);
-				items.push(toBuy[2]);
-				items.push(toBuy[3]);
-				items.push(toBuy[4]);
+				item = 
+				{
+					name: toBuy[0].name, quantity : toBuy[0].quantity
+				}
+				
+				items.push(item);
+
+				item = 
+				{
+					name: toBuy[1].name, quantity : toBuy[1].quantity
+				}
+				
+				items.push(item);
+
+				item = 
+				{
+					name: toBuy[2].name, quantity : toBuy[2].quantity
+				}
+				
+				items.push(item);
+
+				item = 
+				{
+					name: toBuy[3].name, quantity : toBuy[3].quantity
+				}
+				
+				items.push(item);
+
+				item = 
+				{
+					name: toBuy[4].name, quantity : toBuy[4].quantity
+				}
+
+				items.push(item);
 
 				return items;
 			};
+
+			//service.getItems = function ()
+			//{
+			//	return toBuy;
+			//}
 		}
 	}
 )();
