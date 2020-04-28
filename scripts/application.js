@@ -33,54 +33,54 @@
 			var service = this;
 
 			// List of items to buy...
-			var items = [];
+			//var items = [];
 
-			var item = {}
+			//var item = {}
 
-			service.getItems = function () 
-			{
-				item = 
-				{
-					name: toBuy[0].name, quantity : toBuy[0].quantity
-				}
-				
-				items.push(item);
-
-				item = 
-				{
-					name: toBuy[1].name, quantity : toBuy[1].quantity
-				}
-				
-				items.push(item);
-
-				item = 
-				{
-					name: toBuy[2].name, quantity : toBuy[2].quantity
-				}
-				
-				items.push(item);
-
-				item = 
-				{
-					name: toBuy[3].name, quantity : toBuy[3].quantity
-				}
-				
-				items.push(item);
-
-				item = 
-				{
-					name: toBuy[4].name, quantity : toBuy[4].quantity
-				}
-
-				items.push(item);
-
-				return items;
-			};
-
-			//service.getItems = function ()
+			//service.getItems = function () 
 			//{
-			//	return toBuy;
-			//}
+			//	item = 
+			//	{
+			//		name: toBuy[0].name, quantity : toBuy[0].quantity
+			//	}
+				
+			//	items.push(item);
+
+			//	item = 
+			//	{
+			//		name: toBuy[1].name, quantity : toBuy[1].quantity
+			//	}
+				
+			//	items.push(item);
+
+			//	item = 
+			//	{
+			//		name: toBuy[2].name, quantity : toBuy[2].quantity
+			//	}
+				
+			//	items.push(item);
+
+			//	item = 
+			//	{
+			//		name: toBuy[3].name, quantity : toBuy[3].quantity
+			//	}
+				
+			//	items.push(item);
+
+			//	item = 
+			//	{
+			//		name: toBuy[4].name, quantity : toBuy[4].quantity
+			//	}
+
+			//	items.push(item);
+
+			//	return items;
+			//};
+
+			service.getItems = function ()
+			{
+				return toBuy;
+			}
 		}
 	}
 )();
