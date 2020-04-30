@@ -15,6 +15,11 @@ section
 	width:50%; float:left;
 }
 
+.error
+{
+	color: red;
+}
+
 /*#first 
 {
 	border: thin solid black;

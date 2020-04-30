@@ -50,10 +50,19 @@
 				return bought;
 			}
 
+			service.showBuyMessage = function(message)
+			{
+				return message;
+			}
+
+			service.showBoughtMessage = function(message)
+			{
+				return message;
+			}
+
 			service.moveItem = function (index)
 			{												
 				var item = {};
-				
 				if (bought.length <= 4)
 				{							
 					item = 
@@ -63,25 +72,8 @@
 					}
 
 					bought.push(item);
-					toBuy.splice(index, 1);
-
-					buyList.message = "Everything has been bought!";
-
-					// throw new Error("Everything has been bought!");
-				}
-				else
-				{				
-					//item = 
-					//{
-					//	name: toBuy[index].name, 
-					//	quantity : toBuy[index].quantity
-					//}
-
-					//bought.push(item);
-					//toBuy.splice(index, 1);
-
-					throw new Error("Everything has been bought!");
-				}								
+					toBuy.splice(index, 1);					
+				}				
 			};			
 		}
 	}

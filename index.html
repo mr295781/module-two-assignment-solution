@@ -19,7 +19,7 @@
                         <button ng-click="buyList.boughtItem($index);">Bought</button>                        
                     </li>
                 </ol>
-                <div ng-if="buyList.message" class="error">Error: {{ buyList.message }}</div> 
+                <div ng-if="buyList.message" class="error">{{ buyList.message }}</div> 
             </div>
         </section>
         <section id="second" ng-controller="boughtController as boughtList">
@@ -30,7 +30,7 @@
                         Bougth {{ item.quantity }} {{ item.name }}
                     </li>
                 </ol>
-                <div ng-if="boughtList.message" class="error">Error: {{ boughtList.message }}</div> 
+                <div ng-if="boughtList.message" class="error">{{ boughtList.message }}</div> 
             </div>
         </section>
         <script src="scripts/angular.min.js"></script>
