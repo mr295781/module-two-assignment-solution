@@ -16,14 +16,22 @@
                 <ol>
                     <li ng-repeat="item in buyList.items">
                         Buy {{ item.quantity }} {{ item.name }}
-                        <button ng-click="buyList.boughtItem($index);">Bought</button>
+                        <button ng-click="buyList.boughtItem($index);">Bought</button>                        
                     </li>
                 </ol>
+                <div ng-if="buyList.message" class="error">Error: {{ buyList.message }}</div> 
             </div>
         </section>
-        <section id="second" ng-controller="boughtController as boughtAlready">
+        <section id="second" ng-controller="boughtController as boughtList">
             <h3>Already Bought List</h3>
-            <div id="boughtList"></div>
+            <div id="boughtList">
+                <ol>
+                    <li ng-repeat="item in boughtList.items">
+                        Bougth {{ item.quantity }} {{ item.name }}
+                    </li>
+                </ol>
+                <div ng-if="boughtList.message" class="error">Error: {{ boughtList.message }}</div> 
+            </div>
         </section>
         <script src="scripts/angular.min.js"></script>
         <script src="scripts/application.js"></script>

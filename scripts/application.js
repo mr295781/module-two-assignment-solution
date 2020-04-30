@@ -1,4 +1,5 @@
 // JavaScript source code
+// Assignment two script code...
 (
 	function () 
 	{
@@ -13,74 +14,75 @@
 			{ name: "Milk", quantity : 1 },
 		];
 
-		angular.module("ngapp", []).controller("buyController", buyList).controller("boughtController", boughtAlready).service("serviceList", listService);
+		angular.module("ngapp", []).controller("buyController", buyList).controller("boughtController", boughtList).service("serviceList", listService);		
 
-		buyList.$inject["serviceList"];
+		buyList.$inject = ["serviceList"];
 		function buyList(serviceList)
 		{
 			var buyList = this;
 			buyList.items = serviceList.getItems();
+			
+			buyList.boughtItem = function (index)
+			{
+				serviceList.moveItem(index);
+			};
 		}
 
-		boughtController.$inject["serviceList"];
-		function boughtAlready(serviceList)
+		boughtList.$inject = ["serviceList"];
+		function boughtList(serviceList)
 		{
-
+			var boughtList = this;
+			boughtList.items = serviceList.showItems();
 		}
 
 		function listService()
 		{
 			var service = this;
-
-			// List of items to buy...
-			//var items = [];
-
-			//var item = {}
-
-			//service.getItems = function () 
-			//{
-			//	item = 
-			//	{
-			//		name: toBuy[0].name, quantity : toBuy[0].quantity
-			//	}
-				
-			//	items.push(item);
-
-			//	item = 
-			//	{
-			//		name: toBuy[1].name, quantity : toBuy[1].quantity
-			//	}
-				
-			//	items.push(item);
-
-			//	item = 
-			//	{
-			//		name: toBuy[2].name, quantity : toBuy[2].quantity
-			//	}
-				
-			//	items.push(item);
-
-			//	item = 
-			//	{
-			//		name: toBuy[3].name, quantity : toBuy[3].quantity
-			//	}
-				
-			//	items.push(item);
-
-			//	item = 
-			//	{
-			//		name: toBuy[4].name, quantity : toBuy[4].quantity
-			//	}
-
-			//	items.push(item);
-
-			//	return items;
-			//};
-
+			var bought = [];
+						
 			service.getItems = function ()
 			{
 				return toBuy;
+			};
+
+			service.showItems = function ()
+			{
+				return bought;
 			}
+
+			service.moveItem = function (index)
+			{												
+				var item = {};
+				
+				if (bought.length <= 4)
+				{							
+					item = 
+					{
+						name: toBuy[index].name, 
+						quantity : toBuy[index].quantity
+					}
+
+					bought.push(item);
+					toBuy.splice(index, 1);
+
+					buyList.message = "Everything has been bought!";
+
+					// throw new Error("Everything has been bought!");
+				}
+				else
+				{				
+					//item = 
+					//{
+					//	name: toBuy[index].name, 
+					//	quantity : toBuy[index].quantity
+					//}
+
+					//bought.push(item);
+					//toBuy.splice(index, 1);
+
+					throw new Error("Everything has been bought!");
+				}								
+			};			
 		}
 	}
 )();
